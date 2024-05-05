@@ -54,14 +54,14 @@
 // ############################### INPUT ###############################
 
 // ###### CONTROL VIA UART (serial) ######
-//#define CONTROL_SERIAL_USART2       // left sensor board cable, disable if ADC or PPM is used!
-#define CONTROL_BAUD       19200    // control via usart from eg an Arduino or raspberry
+#define CONTROL_SERIAL_USART2       // left sensor board cable, disable if ADC or PPM is used!
+//#define CONTROL_BAUD       19200    // control via usart from eg an Arduino or raspberry
 // for Arduino, use void loop(void){ Serial.write((uint8_t *) &steer, sizeof(steer)); Serial.write((uint8_t *) &speed, sizeof(speed));delay(20); }
 
 // ###### CONTROL VIA RC REMOTE ######
 // left sensor board cable. Channel 1: steering, Channel 2: speed. Use a very short cable!
-//#define CONTROL_PPM                 // use PPM-Sum as input. disable CONTROL_SERIAL_USART2!
-//#define PPM_NUM_CHANNELS 6          // total number of PPM channels to receive, even if they are not used.
+#define CONTROL_PPM                 // use PPM-Sum as input. disable CONTROL_SERIAL_USART2!
+#define PPM_NUM_CHANNELS 4          // total number of PPM channels to receive, even if they are not used.
 
 // ###### CONTROL VIA TWO POTENTIOMETERS ######
 // ADC-calibration to cover the full poti-range: connect potis to left sensor board cable (0 to 3.3V) (do NOT use the red 15V wire in the cable!). see <How to calibrate>. turn the potis to minimum position, write value 1 to ADC1_MIN and value 2 to ADC2_MIN. turn to maximum position and repeat it for ADC?_MAX. make, flash and test it.
